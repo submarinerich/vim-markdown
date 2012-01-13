@@ -57,6 +57,13 @@ syn region mkdLinkTitle matchgroup=mkdDelimiter start=+"+     end=+"+  contained
 syn region mkdLinkTitle matchgroup=mkdDelimiter start=+'+     end=+'+  contained
 syn region mkdLinkTitle matchgroup=mkdDelimiter start=+(+     end=+)+  contained
 
+" Footnotes
+" [^footnote_name]
+" [^footnote_description]: some description goes here
+syn region mkdFootnoteExp matchgroup=mkdID start=+"\[^+ end=+\]:+ contains=htmlLink,@spell skipwhite oneline
+syn region mkdFootnote matchgroup=mkdID start=+\[^+ end=+\]+ contains=htmlLink,@Spell skipwhite oneline
+"syn region mkdFootnoteExplained matchgroup=mkdID start=+\[^+ end=+\]:+ contains=@Spell skipwhite
+
 "define Markdown groups
 syn match  mkdLineContinue ".$" contained
 syn match  mkdRule      /^\s*\*\s\{0,1}\*\s\{0,1}\*$/
